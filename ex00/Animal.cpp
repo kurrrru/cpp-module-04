@@ -43,6 +43,6 @@ void Animal::makeSound() const {
         << color::reset << " says: ..." << std::endl;
 }
 
-std::string Animal::getType() const {
+const std::string &Animal::getType() const {
     return _type;
 }
