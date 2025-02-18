@@ -23,13 +23,13 @@ Ice::Ice() : AMateria("ice") {
     //     << color::reset << " called" << std::endl;
 }
 
-Ice::Ice(const Ice &other) : AMateria(other) {
+Ice::Ice(const Ice& other) : AMateria(other) {
     // std::cout << "Ice " << color::cyan << _type
     //     << color::reset << color::yellow << " copy constructor"
     //     << color::reset << " called" << std::endl;
 }
 
-Ice &Ice::operator=(const Ice &other) {
+Ice& Ice::operator=(const Ice& other) {
     if (this != &other) {
         AMateria::operator=(other);
         // std::cout << "Ice " << color::cyan << _type
@@ -45,11 +45,11 @@ Ice::~Ice() {
     //     << color::reset << " called" << std::endl;
 }
 
-AMateria *Ice::clone() const {
+AMateria* Ice::clone() const {
     return new Ice(*this);
 }
 
-void Ice::use(ICharacter &target) {
+void Ice::use(ICharacter& target) {
     std::cout << "* shoots an ice bolt at " << color::light_cyan
         << target.getName() << color::reset << " *" << std::endl;
 }

@@ -23,13 +23,13 @@ Cure::Cure() : AMateria("cure") {
     //     << color::reset << " called" << std::endl;
 }
 
-Cure::Cure(const Cure &other) : AMateria(other) {
+Cure::Cure(const Cure& other) : AMateria(other) {
     // std::cout << "Cure " << color::cyan << _type
     //     << color::reset << color::yellow << " copy constructor"
     //     << color::reset << " called" << std::endl;
 }
 
-Cure &Cure::operator=(const Cure &other) {
+Cure& Cure::operator=(const Cure& other) {
     if (this != &other) {
         AMateria::operator=(other);
         // std::cout << "Cure " << color::cyan << _type
@@ -45,11 +45,11 @@ Cure::~Cure() {
     //     << color::reset << " called" << std::endl;
 }
 
-AMateria *Cure::clone() const {
+AMateria* Cure::clone() const {
     return new Cure(*this);
 }
 
-void Cure::use(ICharacter &target) {
+void Cure::use(ICharacter& target) {
     std::cout << "* heals " << color::light_cyan << target.getName()
         << color::reset << "’s wounds *" << std::endl;
 }

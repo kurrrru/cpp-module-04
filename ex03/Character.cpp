@@ -26,7 +26,7 @@ Character::Character() : _name("default"), _materiasCount(0) {
     }
 }
 
-Character::Character(const Character &other)
+Character::Character(const Character& other)
     : _name(other._name), _materiasCount(other._materiasCount) {
     // std::cout << "Character " << color::cyan << _name
     //     << color::reset << color::yellow << " copy constructor"
@@ -40,7 +40,7 @@ Character::Character(const Character &other)
     }
 }
 
-Character &Character::operator=(const Character &other) {
+Character& Character::operator=(const Character& other) {
     if (this != &other) {
         _name = other._name;
         _materiasCount = other._materiasCount;
@@ -59,7 +59,7 @@ Character &Character::operator=(const Character &other) {
     return *this;
 }
 
-Character::Character(const std::string &name) : _name(name), _materiasCount(0) {
+Character::Character(const std::string& name) : _name(name), _materiasCount(0) {
     // std::cout << "Character " << color::cyan << _name
     //     << color::reset << color::blue << " type constructor"
     //     << color::reset << " called" << std::endl;
@@ -77,7 +77,7 @@ Character::~Character() {
     }
 }
 
-std::string const &Character::getName() const {
+std::string const& Character::getName() const {
     return _name;
 }
 
@@ -102,7 +102,7 @@ void Character::unequip(int idx) {
     }
 }
 
-void Character::use(int idx, ICharacter &target) {
+void Character::use(int idx, ICharacter& target) {
     if (idx >= 0 && idx < static_cast<int>(_materiasCount)) {
         _materias[idx]->use(target);
     }

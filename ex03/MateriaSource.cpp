@@ -23,7 +23,7 @@ MateriaSource::MateriaSource() : _materiasCount(0) {
     }
 }
 
-MateriaSource::MateriaSource(const MateriaSource &other)
+MateriaSource::MateriaSource(const MateriaSource& other)
         : _materiasCount(other._materiasCount) {
     // std::cout << "MateriaSource " << color::cyan << "copy constructor"
     //     << color::reset << " called" << std::endl;
@@ -32,7 +32,7 @@ MateriaSource::MateriaSource(const MateriaSource &other)
     }
 }
 
-MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
+MateriaSource& MateriaSource::operator=(const MateriaSource& other) {
     if (this != &other) {
         _materiasCount = other._materiasCount;
         // std::cout << "MateriaSource " << color::cyan
@@ -54,7 +54,7 @@ MateriaSource::~MateriaSource() {
     }
 }
 
-void MateriaSource::learnMateria(AMateria *m) {
+void MateriaSource::learnMateria(AMateria* m) {
     if (!m) {
         return;
     }
@@ -64,7 +64,7 @@ void MateriaSource::learnMateria(AMateria *m) {
     }
 }
 
-AMateria *MateriaSource::createMateria(const std::string &type) {
+AMateria* MateriaSource::createMateria(const std::string& type) {
     for (std::size_t i = 0; i < _materiasCount; i++) {
         if (_materias[i]->getType() == type) {
             return _materias[i]->clone();

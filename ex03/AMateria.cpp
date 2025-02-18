@@ -22,13 +22,13 @@ AMateria::AMateria() : _type("default") {
     //     << color::reset << " called" << std::endl;
 }
 
-AMateria::AMateria(const AMateria &other) : _type(other._type) {
+AMateria::AMateria(const AMateria& other) : _type(other._type) {
     // std::cout << "AMateria " << color::cyan << _type
     //     << color::reset << color::yellow << " copy constructor"
     //     << color::reset << " called" << std::endl;
 }
 
-AMateria &AMateria::operator=(const AMateria &other) {
+AMateria& AMateria::operator=(const AMateria& other) {
     if (this != &other) {
         _type = other._type;
         // std::cout << "AMateria " << color::cyan << _type
@@ -38,7 +38,7 @@ AMateria &AMateria::operator=(const AMateria &other) {
     return *this;
 }
 
-AMateria::AMateria(const std::string &type) : _type(type) {
+AMateria::AMateria(const std::string& type) : _type(type) {
     // std::cout << "AMateria " << color::cyan << _type
     //     << color::reset << color::blue << " type constructor"
     //     << color::reset << " called" << std::endl;
@@ -50,11 +50,11 @@ AMateria::~AMateria() {
     //     << color::reset << " called" << std::endl;
 }
 
-const std::string &AMateria::getType() const {
+const std::string& AMateria::getType() const {
     return _type;
 }
 
-void AMateria::use(ICharacter &target) {
+void AMateria::use(ICharacter& target) {
     std::cout << "* uses " << color::yellow << _type
         << color::reset << " on " << color::light_cyan << target.getName()
         << color::reset << " *" << std::endl;
