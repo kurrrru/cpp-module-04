@@ -3,8 +3,7 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-int main()
-{
+int main(void) {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(NULL);
     src->learnMateria(new Ice());

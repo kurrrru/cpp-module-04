@@ -5,30 +5,32 @@
 #include <string>
 
 namespace {
-    namespace color {
-        const std::string red = "\033[1;31m";
-        const std::string green = "\033[1;32m";
-        const std::string yellow = "\033[1;33m";
-        const std::string blue = "\033[1;34m";
-        const std::string magenta = "\033[1;35m";
-        const std::string cyan = "\033[1;36m";
-        const std::string reset = "\033[0m";
-    }
+namespace color {
+const char red[] = "\033[1;31m";
+const char green[] = "\033[1;32m";
+const char yellow[] = "\033[1;33m";
+const char blue[] = "\033[1;34m";
+const char magenta[] = "\033[1;35m";
+const char cyan[] = "\033[1;36m";
+const char light_cyan[] = "\033[1;96m";
+const char reset[] = "\033[0m";
 }
+}  // namespace
 
 Character::Character() : _name("default"), _materiasCount(0) {
-    std::cout << "Character " << color::cyan << _name
-        << color::reset << color::green << " default constructor"
-        << color::reset << " called" << std::endl;
+    // std::cout << "Character " << color::cyan << _name
+    //     << color::reset << color::green << " default constructor"
+    //     << color::reset << " called" << std::endl;
     for (std::size_t i = 0; i < _materiasMax; i++) {
         _materias[i] = NULL;
     }
 }
 
-Character::Character(const Character &other) : _name(other._name), _materiasCount(other._materiasCount) {
-    std::cout << "Character " << color::cyan << _name
-        << color::reset << color::yellow << " copy constructor"
-        << color::reset << " called" << std::endl;
+Character::Character(const Character &other)
+    : _name(other._name), _materiasCount(other._materiasCount) {
+    // std::cout << "Character " << color::cyan << _name
+    //     << color::reset << color::yellow << " copy constructor"
+    //     << color::reset << " called" << std::endl;
     for (std::size_t i = 0; i < _materiasMax; i++) {
         if (other._materias[i]) {
             _materias[i] = other._materias[i]->clone();
@@ -42,9 +44,9 @@ Character &Character::operator=(const Character &other) {
     if (this != &other) {
         _name = other._name;
         _materiasCount = other._materiasCount;
-        std::cout << "Character " << color::cyan << _name
-            << color::reset << color::magenta << " assignation operator"
-            << color::reset << " called" << std::endl;
+        // std::cout << "Character " << color::cyan << _name
+        //     << color::reset << color::magenta << " assignation operator"
+        //     << color::reset << " called" << std::endl;
         for (std::size_t i = 0; i < _materiasMax; i++) {
             delete _materias[i];
             if (other._materias[i]) {
@@ -58,18 +60,18 @@ Character &Character::operator=(const Character &other) {
 }
 
 Character::Character(const std::string &name) : _name(name), _materiasCount(0) {
-    std::cout << "Character " << color::cyan << _name
-        << color::reset << color::blue << " type constructor"
-        << color::reset << " called" << std::endl;
+    // std::cout << "Character " << color::cyan << _name
+    //     << color::reset << color::blue << " type constructor"
+    //     << color::reset << " called" << std::endl;
     for (std::size_t i = 0; i < _materiasMax; i++) {
         _materias[i] = NULL;
     }
 }
 
 Character::~Character() {
-    std::cout << "Character " << color::cyan << _name
-        << color::reset << color::red << " destructor"
-        << color::reset << " called" << std::endl;
+    // std::cout << "Character " << color::cyan << _name
+    //     << color::reset << color::red << " destructor"
+    //     << color::reset << " called" << std::endl;
     for (std::size_t i = 0; i < _materiasMax; i++) {
         delete _materias[i];
     }
