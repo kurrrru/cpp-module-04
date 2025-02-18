@@ -4,7 +4,7 @@
 
 class Brain {
  private:
-	enum {IDEAS = 100};
+    enum {IDEAS = 100};
 
  public:
     Brain();
