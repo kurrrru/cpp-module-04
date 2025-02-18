@@ -24,7 +24,7 @@ Brain::Brain() {
     }
 }
 
-Brain::Brain(const Brain &other) {
+Brain::Brain(const Brain& other) {
     std::cout << "Brain " << color::yellow << "copy constructor"
         << color::reset << " called" << std::endl;
     for (int i = 0; i < Brain::IDEAS; i++) {
@@ -32,7 +32,7 @@ Brain::Brain(const Brain &other) {
     }
 }
 
-Brain &Brain::operator=(const Brain &other) {
+Brain& Brain::operator=(const Brain& other) {
     if (this != &other) {
         std::cout << "Brain " << color::magenta << "assignation operator"
             << color::reset << " called" << std::endl;

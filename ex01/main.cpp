@@ -7,7 +7,7 @@
 
 int main() {
     {
-        Animal **animals = new Animal*[6];
+        Animal** animals = new Animal*[6];
         for (int i = 0; i < 6; i++) {
             if (i % 2 == 0) {
                 animals[i] = new Dog();
@@ -24,8 +24,8 @@ int main() {
         delete[] animals;
     }
 
-    Cat *cat = new Cat();
-    Cat *cat2 = new Cat(*cat);
+    Cat* cat = new Cat();
+    Cat* cat2 = new Cat(*cat);
     cat2->makeSound();
     *cat2 = *cat;
     Cat cat3;

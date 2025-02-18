@@ -22,14 +22,14 @@ Cat::Cat() : Animal("Cat") {
     _brain = new Brain();
 }
 
-Cat::Cat(const Cat &other) : Animal(other) {
+Cat::Cat(const Cat& other) : Animal(other) {
     std::cout << "Cat " << color::cyan << _type
         << color::reset << color::yellow << " copy constructor"
         << color::reset << " called" << std::endl;
     _brain = new Brain(*other._brain);
 }
 
-Cat &Cat::operator=(const Cat &other) {
+Cat& Cat::operator=(const Cat& other) {
     if (this != &other) {
         Animal::operator=(other);
         std::cout << "Cat " << color::cyan << _type
