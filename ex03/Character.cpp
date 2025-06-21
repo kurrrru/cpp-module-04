@@ -105,5 +105,7 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
     if (idx >= 0 && idx < static_cast<int>(_materiasCount)) {
         _materias[idx]->use(target);
+    } else {
+        std::cerr << "Invalid index: " << idx << std::endl;
     }
 }
