@@ -22,14 +22,14 @@ Cat::Cat() : Animal("Cat") {
     _brain = new Brain();
 }
 
-Cat::Cat(const Cat &other) : Animal(other) {
+Cat::Cat(const Cat& other) : Animal(other) {
     std::cout << "Cat " << color::cyan << _type
         << color::reset << color::yellow << " copy constructor"
         << color::reset << " called" << std::endl;
     _brain = new Brain(*other._brain);
 }
 
-Cat &Cat::operator=(const Cat &other) {
+Cat& Cat::operator=(const Cat& other) {
     if (this != &other) {
         Animal::operator=(other);
         std::cout << "Cat " << color::cyan << _type
@@ -51,4 +51,21 @@ Cat::~Cat() {
 void Cat::makeSound() const {
     std::cout << "Cat " << color::cyan << _type
         << color::reset << " says: Meow meow" << std::endl;
+}
+
+void Cat::setIdea(int index, const std::string& idea) {
+    if (_brain) {
+        _brain->setIdea(index, idea);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+    }
+}
+
+std::string Cat::getIdea(int index) const {
+    if (_brain) {
+        return _brain->getIdea(index);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+        return "";
+    }
 }

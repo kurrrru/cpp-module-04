@@ -52,3 +52,20 @@ void Dog::makeSound() const {
     std::cout << "Dog " << color::cyan << _type
         << color::reset << " says: Woof woof" << std::endl;
 }
+
+void Dog::setIdea(int index, const std::string& idea) {
+    if (_brain) {
+        _brain->setIdea(index, idea);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+    }
+}
+
+std::string Dog::getIdea(int index) const {
+    if (_brain) {
+        return _brain->getIdea(index);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+        return "";
+    }
+}

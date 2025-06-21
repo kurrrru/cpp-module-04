@@ -24,7 +24,7 @@ Brain::Brain() {
     }
 }
 
-Brain::Brain(const Brain &other) {
+Brain::Brain(const Brain& other) {
     std::cout << "Brain " << color::yellow << "copy constructor"
         << color::reset << " called" << std::endl;
     for (int i = 0; i < Brain::IDEAS; i++) {
@@ -32,7 +32,7 @@ Brain::Brain(const Brain &other) {
     }
 }
 
-Brain &Brain::operator=(const Brain &other) {
+Brain& Brain::operator=(const Brain& other) {
     if (this != &other) {
         std::cout << "Brain " << color::magenta << "assignation operator"
             << color::reset << " called" << std::endl;
@@ -46,4 +46,21 @@ Brain &Brain::operator=(const Brain &other) {
 Brain::~Brain() {
     std::cout << "Brain " << color::red << "destructor"
         << color::reset << " called" << std::endl;
+}
+
+void Brain::setIdea(int index, const std::string& idea) {
+    if (index >= 0 && index < Brain::IDEAS) {
+        _ideas[index] = idea;
+    } else {
+        std::cerr << "Index out of bounds: " << index << std::endl;
+    }
+}
+
+std::string Brain::getIdea(int index) const {
+    if (index >= 0 && index < Brain::IDEAS) {
+        return _ideas[index];
+    } else {
+        std::cerr << "Index out of bounds: " << index << std::endl;
+        return "";
+    }
 }

@@ -22,14 +22,14 @@ Dog::Dog() : Animal("Dog") {
     _brain = new Brain();
 }
 
-Dog::Dog(const Dog &other) : Animal(other) {
+Dog::Dog(const Dog& other) : Animal(other) {
     std::cout << "Dog " << color::cyan << _type
         << color::reset << color::yellow << " copy constructor"
         << color::reset << " called" << std::endl;
     _brain = new Brain(*other._brain);
 }
 
-Dog &Dog::operator=(const Dog &other) {
+Dog& Dog::operator=(const Dog& other) {
     if (this != &other) {
         Animal::operator=(other);
         std::cout << "Dog " << color::cyan << _type
@@ -51,4 +51,21 @@ Dog::~Dog() {
 void Dog::makeSound() const {
     std::cout << "Dog " << color::cyan << _type
         << color::reset << " says: Woof woof" << std::endl;
+}
+
+void Dog::setIdea(int index, const std::string& idea) {
+    if (_brain) {
+        _brain->setIdea(index, idea);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+    }
+}
+
+std::string Dog::getIdea(int index) const {
+    if (_brain) {
+        return _brain->getIdea(index);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+        return "";
+    }
 }

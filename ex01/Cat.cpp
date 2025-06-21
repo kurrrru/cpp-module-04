@@ -52,3 +52,20 @@ void Cat::makeSound() const {
     std::cout << "Cat " << color::cyan << _type
         << color::reset << " says: Meow meow" << std::endl;
 }
+
+void Cat::setIdea(int index, const std::string& idea) {
+    if (_brain) {
+        _brain->setIdea(index, idea);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+    }
+}
+
+std::string Cat::getIdea(int index) const {
+    if (_brain) {
+        return _brain->getIdea(index);
+    } else {
+        std::cerr << "Brain is not initialized." << std::endl;
+        return "";
+    }
+}
